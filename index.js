@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 
 const clientes =[
-    {id:1, name: 'Devin', age: 20, enroll: true},
-    {id:1, name: 'David', age: 30, enroll: true},
-    {id:1, name: 'Jennifer', age: 40, enroll: false},
+    {id:1, nombre: 'Devin', edad: 20, ciudad: 'Jalapa'},
+    {id:2, nombre: 'David', edad: 30, ciudad: 'Chimaltenango'},
+    {id:3, nombre: 'Jennifer', edad: 40, ciudad:'Jalapa'},
 ];
 
 app.get('/', (req,res)=> {
@@ -26,9 +26,9 @@ app.get('/api/clientes/:id', (req,res)=> {
 app.post('/api/clientes', (req,res)=> {
     const cliente = {
         id: clientes.length + 1,
-        name: req.body.name,
-        age: parseInt(req.body.age),
-        enroll: (req.body.enroll === 'true')
+        nombre: req.body.nombre,
+        edad: parseInt(req.body.edad),
+        ciudad: req.body.ciudad,
     };
 
     clientes.push(cliente);
